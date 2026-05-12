@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Keeper — Design Sample</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --bg-sidebar: #f3efe6;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4540;
+    --ink-mute: #8a8278;
+    --rule: #d8d1c2;
+    --rule-soft: #e8e2d3;
+    --accent: #6b4423;
+    --serif: 'EB Garamond', 'Adobe Garamond Pro', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--rule);
+    padding: 2.5rem 1.75rem 2rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-family: var(--sans);
+  }
+
+  .sidebar-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+    letter-spacing: 0.005em;
+  }
+
+  .sidebar-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin: 0 0 2.25rem;
+    line-height: 1.4;
+  }
+
+  .nav-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 0.6rem;
+    padding: 0;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-list li {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .nav-list a {
+    display: block;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 0.35rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.65rem;
+    margin-left: -0.65rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .nav-list a:hover {
+    color: var(--ink);
+    border-left-color: var(--accent);
+  }
+
+  .nav-list a.current {
+    color: var(--ink);
+    border-left-color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ---------- Main ---------- */
+  .main {
+    padding: 3.5rem 4rem 6rem;
+    max-width: 100%;
+  }
+
+  .content {
+    max-width: 38rem;
+    margin: 0 auto;
+  }
+
+  /* ---------- Header / running head ---------- */
+  .running-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule-soft);
+    margin-bottom: 3.5rem;
+  }
+
+  .running-head .part {
+    color: var(--accent);
+  }
+
+  /* ---------- Chapter heading ---------- */
+  .chapter-num {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 0.6rem;
+  }
+
+  h1.chapter-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin: 0 0 0.4rem;
+  }
+
+  .chapter-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin: 0 0 3rem;
+    line-height: 1.4;
+  }
+
+  /* ---------- Body prose ---------- */
+  p {
+    margin: 0 0 1.1rem;
+    color: var(--ink);
+  }
+
+  p.lead::first-letter {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 3.4rem;
+    line-height: 0.85;
+    float: left;
+    padding: 0.35rem 0.5rem 0 0;
+    color: var(--accent);
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  /* ---------- Section heading ---------- */
+  h2.section {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 2.75rem 0 1.25rem;
+    letter-spacing: 0.002em;
+  }
+
+  /* ---------- Citation block ---------- */
+  .citation {
+    margin: 2.5rem 0 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-mute);
+    line-height: 1.5;
+  }
+
+  .citation-label {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-right: 0.6rem;
+  }
+
+  /* ---------- Gloss style comparison ---------- */
+  .gloss-bold {
+    font-weight: 600;
+  }
+  .gloss-paren {
+    /* No styling — natural prose flow */
+  }
+
+  /* ---------- Responsive: iPad portrait and narrower ---------- */
+  /* Sidebar stays visible always. Body padding tightens. */
+  @media (max-width: 900px) {
+    .page {
+      grid-template-columns: 220px 1fr;
+    }
+    .sidebar {
+      padding: 2rem 1.25rem 1.5rem;
+    }
+    .sidebar-title {
+      font-size: 1.2rem;
+    }
+    .sidebar-subtitle {
+      font-size: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+    .nav-list li {
+      font-size: 0.82rem;
+    }
+    .main {
+      padding: 2.5rem 1.75rem 4rem;
+    }
+    h1.chapter-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page {
+      grid-template-columns: 190px 1fr;
+    }
+    .main {
+      padding: 2rem 1.25rem 3rem;
+    }
+    body {
+      font-size: 18px;
+    }
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(107, 68, 35, 0.18);
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ============ Sidebar ============ -->
+  <aside class="sidebar">
+    <h2 class="sidebar-title">The Keeper</h2>
+    <p class="sidebar-subtitle">From the garden to the open gate</p>
+
+    <div class="nav-section">
+      <p class="nav-label">Part One — The Thread</p>
+      <ul class="nav-list">
+        <li><a href="#" class="current">The Garden Assignment</a></li>
+        <li><a href="#">The First Departure</a></li>
+        <li><a href="#">Cain in the Field</a></li>
+        <li><a href="#">Noah and the Mandate Renewed</a></li>
+        <li><a href="#">Shem, Abram, and the Narrowing</a></li>
+        <li><a href="#">Melchizedek</a></li>
+        <li><a href="#">The Levites at the Tabernacle</a></li>
+        <li><a href="#">David and the Heart</a></li>
+        <li><a href="#">The Carrier Who Never Left</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-section">
+      <p class="nav-label">Part Two — At Human Scale</p>
+      <ul class="nav-list">
+        <li><a href="#">Noah and His Sons</a></li>
+        <li><a href="#">Abram and Lot</a></li>
+        <li><a href="#">Jacob, Leah, Rachel</a></li>
+        <li><a href="#">Joseph and His Brothers</a></li>
+        <li><a href="#">Judah and Tamar</a></li>
+        <li><a href="#">David, Abigail, Uriah</a></li>
+        <li><a href="#">David and His Children</a></li>
+        <li><a href="#">Hannah</a></li>
+        <li><a href="#">The Floor That Held</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-section">
+      <p class="nav-label">Part Three — Above and After</p>
+      <ul class="nav-list">
+        <li><a href="#">The Divine Council</a></li>
+        <li><a href="#">The Watchers</a></li>
+        <li><a href="#">Held by What They Refused</a></li>
+        <li><a href="#">The Closing Movement</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ============ Main ============ -->
+  <main class="main">
+    <div class="content">
+
+      <div class="running-head">
+        <span class="part">Part One · The Thread</span>
+        <span>Chapter 1</span>
+      </div>
+
+      <p class="chapter-num">Chapter One</p>
+      <h1 class="chapter-title">The Garden Assignment</h1>
+      <p class="chapter-subtitle">A man, a place, and the two words that opened the canon</p>
+
+      <p class="lead">The second chapter of Genesis is describing a completion. God has made the world, formed the man, planted the garden, sent the rivers out from a single source in four directions, and He placed the man in the garden deliberately — the Hebrew verb is the kind you use for setting something down where it belongs. Adam has been given work to do and a boundary to honor. He has been given a helper who is drawn from his own side. He walks in the cool of the day with the God who made him. Everything that was supposed to be there is there. The arrangement is whole. This book begins where that wholeness begins, because every page after it is in some sense about what was lost when the arrangement was broken, and what it cost to put it back.</p>
+
+      <p style="margin-top: 2.5rem; font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);">Option · Light Bold on the English</p>
+
+      <p>Adam's placing was deliberate, so much so that the verse describing it uses two different words to say so. The Hebrew is short — about a dozen words — and the part that matters is two verbs. <em>The Lord God took the man, and put him in the garden of Eden.</em> The first verb is <em>wayiqach</em> — <span class="gloss-bold">took</span>. It is the verb you use when a person does something on purpose. The second verb is <em>yanach</em> — <span class="gloss-bold">put</span>. It is the verb you use when you set something down where it belongs. Not dropped. Not left. Stationed. Both verbs are active, and both verbs are God's. The man did not arrive in the garden by accident. He was taken from somewhere, he was placed somewhere, and the somewhere he was placed is named.</p>
+
+      <p style="margin-top: 3.5rem; font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);">Option · Parenthetical, No Emphasis</p>
+
+      <p>Adam's placing was deliberate, so much so that the verse describing it uses two different words to say so. The Hebrew is short — about a dozen words — and the part that matters is two verbs. <em>The Lord God took the man, and put him in the garden of Eden.</em> The first verb is <em>wayiqach</em> (took). It is the verb you use when a person does something on purpose. The second verb is <em>yanach</em> (put). It is the verb you use when you set something down where it belongs. Not dropped. Not left. Stationed. Both verbs are active, and both verbs are God's. The man did not arrive in the garden by accident. He was taken from somewhere, he was placed somewhere, and the somewhere he was placed is named.</p>
+
+      <p class="citation"><span class="citation-label">Sources</span>Genesis 2:4–25; Genesis 2:15; Genesis 3:8. Hebrew <em>wayiqach</em>, Strong's H3947; Hebrew <em>yanach</em>, Strong's H3240.</p>
+
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>
