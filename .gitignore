@@ -1,0 +1,12 @@
+# Editor / OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+~$*
+
+# Claude Code project-local config
+.claude/
+
+# Obsidian workspace (if you ever copy this folder back into a vault)
+.obsidian/
