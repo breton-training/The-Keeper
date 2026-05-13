@@ -122,6 +122,16 @@
     font-weight: 500;
   }
 
+  .nav-list .pending {
+    display: block;
+    color: var(--ink-mute);
+    padding: 0.35rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.65rem;
+    margin-left: -0.65rem;
+    cursor: default;
+  }
+
   /* ---------- Main ---------- */
   .main {
     padding: 3.5rem 4rem 6rem;
@@ -238,6 +248,43 @@
     margin-right: 0.6rem;
   }
 
+  /* ---------- Block quote (displayed scripture) ---------- */
+  blockquote {
+    margin: 1.5rem 0 1.6rem;
+    padding: 0 0 0 2em;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  blockquote p {
+    margin: 0 0 0.4rem;
+  }
+
+  blockquote .ref {
+    display: block;
+    margin-top: 0.15rem;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+  }
+
+  blockquote .ref::before {
+    content: "— ";
+  }
+
+  /* ---------- Chapter divider ---------- */
+  .chapter-divider {
+    margin: 5rem 0 0;
+    border: 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+
   /* ---------- Responsive: iPad portrait and narrower ---------- */
   /* Sidebar stays visible always. Body padding tightens. */
   @media (max-width: 900px) {
@@ -295,41 +342,41 @@
     <div class="nav-section">
       <p class="nav-label">Part One — The Thread</p>
       <ul class="nav-list">
-        <li><a href="#" class="current">The Garden Assignment</a></li>
-        <li><a href="#">The Arrangement</a></li>
-        <li><a href="#">The First Departure</a></li>
-        <li><a href="#">Cain in the Field</a></li>
-        <li><a href="#">Noah and the Mandate Renewed</a></li>
-        <li><a href="#">Shem, Abram, and the Narrowing</a></li>
-        <li><a href="#">Melchizedek</a></li>
-        <li><a href="#">The Levites at the Tabernacle</a></li>
-        <li><a href="#">David and the Heart</a></li>
-        <li><a href="#">The Carrier Who Never Left</a></li>
+        <li><a href="#chapter-one">The Garden Assignment</a></li>
+        <li><a href="#chapter-two" class="current">The Garden</a></li>
+        <li><span class="pending">The First Departure</span></li>
+        <li><span class="pending">Cain in the Field</span></li>
+        <li><span class="pending">Noah and the Mandate Renewed</span></li>
+        <li><span class="pending">Shem, Abram, and the Narrowing</span></li>
+        <li><span class="pending">Melchizedek</span></li>
+        <li><span class="pending">The Levites at the Tabernacle</span></li>
+        <li><span class="pending">David and the Heart</span></li>
+        <li><span class="pending">The Carrier Who Never Left</span></li>
       </ul>
     </div>
 
     <div class="nav-section">
       <p class="nav-label">Part Two — At Human Scale</p>
       <ul class="nav-list">
-        <li><a href="#">Noah and His Sons</a></li>
-        <li><a href="#">Abram and Lot</a></li>
-        <li><a href="#">Jacob, Leah, Rachel</a></li>
-        <li><a href="#">Joseph and His Brothers</a></li>
-        <li><a href="#">Judah and Tamar</a></li>
-        <li><a href="#">David, Abigail, Uriah</a></li>
-        <li><a href="#">David and His Children</a></li>
-        <li><a href="#">Hannah</a></li>
-        <li><a href="#">The Floor That Held</a></li>
+        <li><span class="pending">Noah and His Sons</span></li>
+        <li><span class="pending">Abram and Lot</span></li>
+        <li><span class="pending">Jacob, Leah, Rachel</span></li>
+        <li><span class="pending">Joseph and His Brothers</span></li>
+        <li><span class="pending">Judah and Tamar</span></li>
+        <li><span class="pending">David, Abigail, Uriah</span></li>
+        <li><span class="pending">David and His Children</span></li>
+        <li><span class="pending">Hannah</span></li>
+        <li><span class="pending">The Floor That Held</span></li>
       </ul>
     </div>
 
     <div class="nav-section">
       <p class="nav-label">Part Three — Above and After</p>
       <ul class="nav-list">
-        <li><a href="#">The Divine Council</a></li>
-        <li><a href="#">The Watchers</a></li>
-        <li><a href="#">Held by What They Refused</a></li>
-        <li><a href="#">The Closing Movement</a></li>
+        <li><span class="pending">The Divine Council</span></li>
+        <li><span class="pending">The Watchers</span></li>
+        <li><span class="pending">Held by What They Refused</span></li>
+        <li><span class="pending">The Closing Movement</span></li>
       </ul>
     </div>
   </aside>
@@ -343,7 +390,7 @@
         <span>Chapter 1</span>
       </div>
 
-      <p class="chapter-num">Chapter One</p>
+      <p class="chapter-num" id="chapter-one">Chapter One</p>
       <h1 class="chapter-title">The Garden Assignment</h1>
 
       <p class="lead">The second chapter of Genesis is describing a completion. God has made the world, formed the man, planted the garden, sent the rivers out from a single source in four directions, and He placed the man in the garden deliberately — the Hebrew verb is the kind you use for setting something down where it belongs. Adam has been given work to do and a boundary to honor. He has been given a helper who is drawn from his own side. He walks in the cool of the day with the God who made him. Everything that was supposed to be there is there. The arrangement is whole. This book begins where that wholeness begins, because every page after it is in some sense about what was lost when the arrangement was broken, and what it cost to put it back.</p>
@@ -359,6 +406,155 @@
       <p>The second word is <em>shamar</em>. Its primary meaning is to guard, to watch over, to keep, to preserve. The image at the root of the word is hedging something about with thorns — fencing it in not against itself, but against what might come for it. It appears over four hundred times in the Hebrew Bible, and its range is wide. A man can <em>shamar</em> a place, a covenant, a person, a flock, a charge given to him. The word holds three movements at once. There is the maintenance of what is in one's care — the steady work of keeping a thing in good order. There is the watch against what might come for it — standing between the thing and the threat. And there is the proliferation of what is kept — causing what is in one's charge to grow, to multiply, to flourish in the direction it was made to go. A shepherd <em>shamars</em> his flock when he leads them to good pasture, and when he stands between them and the wolf, and when his careful tending produces a flock that grows under his care. All three are the same word. In Genesis 2:15 it is the second of the two purposes for which Adam was placed in the garden. He was to serve it, and he was to keep it — to maintain what was there, to watch over it against whatever might come for it, and to cause it to flourish and multiply in the way the blessing that came before had already pointed it toward. The text in Genesis 2 does not name a threat. But the verb is not idle. It is given as a real assignment in a real arrangement. We will see more of these two words — one soon, the other further along in our journey.</p>
 
       <p class="citation"><span class="citation-label">Sources</span>Genesis 1:28; Genesis 2:4–25; Genesis 2:9; Genesis 2:15; Genesis 3:8; Genesis 3:17. Hebrew <em>wayiqach</em>, Strong's H3947; Hebrew <em>yanach</em>, Strong's H3240; Hebrew <em>abad</em>, Strong's H5647; Hebrew <em>eved</em>, Strong's H5650; Hebrew <em>shamar</em>, Strong's H8104. Greek <em>douleuo</em>, Strong's G1398; Greek <em>leitourgeo</em>, Strong's G3008. LXX translation analysis.</p>
+
+      <hr class="chapter-divider">
+
+      <div class="running-head">
+        <span class="part">Part One · The Thread</span>
+        <span>Chapter 2</span>
+      </div>
+
+      <p class="chapter-num" id="chapter-two">Chapter Two</p>
+      <h1 class="chapter-title">The Garden</h1>
+
+      <p class="lead">God's garden was lush, it was full, and it was a remarkable place of beauty. The character of God's provision, the manner and style whereby He creates and gives, is indeed providential and utilitarian — and it is also pleasant to the eyes. Through the six days of Genesis 1, the text records that God saw that it was good — six times across the days, and at the end of the sixth, very good. The evaluation is His own. The same character shows in everything the canon describes Him commanding into being. When the tabernacle was raised, and later the temple, God specified the gold and the carved palm trees and the open flowers, the pomegranates and the cherubim worked into the curtains, the blue and the purple and the scarlet yarn. When the Preacher considered the lives of men under heaven, he recorded:</p>
+
+      <blockquote>
+        <p><em>Everyone should eat and drink and take pleasure in all his toil — this is God's gift to man.</em></p>
+        <span class="ref">Ecclesiastes 3:13</span>
+      </blockquote>
+
+      <p>And when God Himself spoke to Job out of the whirlwind, He answered him with the founding of the world:</p>
+
+      <blockquote>
+        <p><em>Where were you when I laid the foundation of the earth? ... When the morning stars sang together and all the sons of God shouted for joy?</em></p>
+        <span class="ref">Job 38:4, 7</span>
+      </blockquote>
+
+      <p>The character is one character, in the garden and in the tabernacle and in the daily life of the man who walks the field — provision that is also beautiful, work that is also pleasure, foundation that is also occasion for song. In the second chapter of Genesis, the closer view of the garden, that character shows in the details the text spends time on.</p>
+
+      <blockquote>
+        <p><em>And out of the ground the Lord God made to spring up every tree that was pleasant to the sight and good for food.</em></p>
+        <span class="ref">Genesis 2:9</span>
+      </blockquote>
+
+      <p>Both qualifiers, every tree. A river went out of Eden, and from there it divided and became four rivers, named one by one — the Pishon, which winds through the land of Havilah where there is gold and bdellium and onyx stone; the Gihon, which winds through the whole land of Cush; the Tigris, which flows east of Assyria; and the Euphrates. The text takes its time naming the lands and the stones. The water was given as provision, and the route the water took was good, and the lands the water passed through were good, and the text records each of them. In the middle of the garden stood the tree of life, and the tree of the knowledge of good and evil. Every created being given the breath of life was living there — livestock, beasts of the field, birds of the sky, and everything that creeps on the earth. Everything in the garden had a place. Everything the man needed was there. The arrangement was not sparse, it was full. And it was beautiful by design.</p>
+
+      <h2 class="section">The Helper</h2>
+
+      <p>That same God — who had founded the world to the sound of singing, who had filled the garden with every tree pleasant to the sight, who had numbered the days and named them good — now named one thing not good.</p>
+
+      <blockquote>
+        <p><em>Then the Lord God said, "It is not good that the man should be alone; I will make him a helper fit for him."</em></p>
+        <span class="ref">Genesis 2:18</span>
+      </blockquote>
+
+      <p>Through the days of the first chapter of the book of Genesis, God had been naming things good. The light, the dry land, the vegetation, the lights in the heavens, the creatures of the sea, the creatures of the land — each good, and the whole, at the close of the sixth day, very good. <em>Not good</em> is the first thing in the creation account that God names against the run of the chapter. The not-goodness is named in the same voice that named the goodness. It is the same God, the same evaluation, applied to what the arrangement still required.</p>
+
+      <p>What the man required, the text names directly. <em>I will make him a helper fit for him.</em> The English translation reaches for the words it has — <em>helper</em>, <em>fit for him</em> — and gives the reader something of what the Hebrew is doing, but the Hebrew has more in it. The word for <em>helper</em> is <em>ezer</em>. It is a word the canon uses sparingly, and when it uses the word, it most often uses it of God.</p>
+
+      <blockquote>
+        <p><em>I lift up my eyes to the hills. From where does my help come? My help comes from the Lord, who made heaven and earth.</em></p>
+        <span class="ref">Psalm 121:1–2</span>
+      </blockquote>
+
+      <blockquote>
+        <p><em>Our help is in the name of the Lord, who made heaven and earth.</em></p>
+        <span class="ref">Psalm 124:8</span>
+      </blockquote>
+
+      <p>The word does not name a position beneath the one helped. It names strength brought to bear on behalf of another, the kind of help that comes from the One who made the heavens and the earth. When the text says God will make the man an <em>ezer</em>, the text is using the word it elsewhere uses for God Himself as helper. The helper for the man would be of that kind.</p>
+
+      <p>The two words that follow — <em>fit for him</em> — translate a single Hebrew compound, <em>kenegdo</em>. The compound is built from a preposition that means <em>facing, opposite, corresponding to, in counterpart relation with</em>, joined to a particle of likeness, with the third-person suffix fixing it to this man. The literal sense is <em>like one facing him</em> — like his counterpart, like his correspondent, drawn to his match. The English <em>fit for him</em> gets at it partially. <em>Fit</em> names a match; <em>kenegdo</em> names a match that stands across from him, in counterpart. She is not made to stand behind him. She is not made identical to him. She is made to stand facing him, like him in correspondence, drawn to his match.</p>
+
+      <p>What the helper would need to be, the text demonstrates by what was tried first.</p>
+
+      <blockquote>
+        <p><em>Now out of the ground the Lord God had formed every beast of the field and every bird of the heavens and brought them to the man to see what he would call them. And whatever the man called every living creature, that was its name. The man gave names to all livestock and to the birds of the heavens and to every beast of the field, but for Adam there was not found a helper fit for him.</em></p>
+        <span class="ref">Genesis 2:19–20</span>
+      </blockquote>
+
+      <p>God brings the animals, and the text records the bringing with care. They were <em>formed out of the ground</em> — <em>yatsar min ha-adamah</em> — the same verb and the same material from which the man himself had been formed in the verse the chapter opened with. The bringing comes after God has already said <em>I will make him a helper fit for him</em> — the intention is named, the making is future, and God has not yet carried it out. What He does instead is bring the man every kind that lived in the garden and place each one before him, <em>to see what he would call them</em>. The man names each kind, exercising the dominion he had been given in the first chapter — but the naming is also the man's own examination of every creature the breath of life had been given to. Livestock, birds of the heavens, beasts of the field; he sees each one, and he gives each one its name from outside its kind. The man and the animals shared their material. They shared the breath of life. The sharing was not enough. None of them was <em>kenegdo</em>. The text records the conclusion as the man's own discovery: <em>for Adam there was not found a helper fit for him.</em> The search through every kind had been the search for what would correspond to him, and across every kind, what would correspond to him was not there. What followed the search was sleep. The man did not produce a match. He found absence, and the absence is where the text leaves him before God acts.</p>
+
+      <p>What the text does next is the text's argument. God does not bring more animals. He does not form a new creature from the ground. The man had been formed from the ground; the animals had been formed from the ground; and the man and the animals were not <em>kenegdo</em> to each other. God turns from the ground to the man himself.</p>
+
+      <blockquote>
+        <p><em>So the Lord God caused a deep sleep to fall upon the man, and while he slept took one of his sides and closed up its place with flesh. And the side that the Lord God had taken from the man he made into a woman and brought her to the man.</em></p>
+        <span class="ref">Genesis 2:21–22</span>
+      </blockquote>
+
+      <p>The English translations reach for <em>rib</em> where the Hebrew has <em>tsela</em>. The Hebrew word is a structural word. It is the word the text will later use for the sides of the ark of the covenant, for the sides of the altar of incense, for the structural sides of the tabernacle, for the side-chambers built against the wall of Solomon's temple, and for the structural sides of the visionary temple Ezekiel saw. The word does not name an internal piece or a small bone. It names the structural dimension of a built thing — the side that gives the thing its form, the part that defines its outward standing. The man had sides — the Hebrew is plural, <em>tsal'otav</em> — and God took one of them. The verb the text uses for what God did with what was taken is <em>banah</em>, to build. It is the verb the canon uses elsewhere for building altars, for building houses, for building cities, for the structural construction of the tabernacle and the temple. God took a structural part of the man and built her from it. The taking was sufficient to build a person — image-bearing, breath-of-life, <em>kenegdo</em>. The proportion of the taking matched the proportion of the building. She was not made from a fragment. She was made from a side. The text records that God closed up the place with flesh — the man whole at the site of the taking — and brought her to him.</p>
+
+      <p>The man wakes, and the text records what he says.</p>
+
+      <blockquote>
+        <p><em>Then the man said, "This at last is bone of my bones and flesh of my flesh; she shall be called Woman, because she was taken out of Man."</em></p>
+        <span class="ref">Genesis 2:23</span>
+      </blockquote>
+
+      <p>The Hebrew that opens his speech is <em>zot ha-pa'am</em> — <em>this, the instance</em>, <em>this, the time</em>, what English translations render <em>this at last</em>. The phrase carries the weight of a search ended. Every kind had been brought to the man, every kind had been named, and across all of them the man had found nothing that corresponded to him. Now he sees her, and <em>this, the instance</em> is what he says. The recognition is in the words themselves before he names what he has recognized. He sees her, and he knows.</p>
+
+      <p>What he names is shared form. <em>Bone of my bones and flesh of my flesh.</em> The naming is not the naming of a creature outside his kind. It is the recognition of the same material, the same structural dimension, the same image-bearing form, now standing across from him in counterpart. The man who had named every kind from outside their kind now names the one who shares his kind, and the naming changes. He calls her <em>ishah</em>, woman, because she was taken from <em>ish</em>, man. The Hebrew has the two words side by side, <em>ish</em> and <em>ishah</em>, the second built from the first the way she was built from him. The naming is the recognition spoken aloud.</p>
+
+      <p>The text then gives the narrator's gloss on what has just happened.</p>
+
+      <blockquote>
+        <p><em>Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh.</em></p>
+        <span class="ref">Genesis 2:24</span>
+      </blockquote>
+
+      <p>The verse looks forward and backward at the same time. Forward, to every union that will follow — a man leaving his father and mother, holding fast to his wife. Backward, to what has just been described — the building of the woman from the man's side, the bringing, the recognition. The narrator names the relational form. <em>One flesh.</em> The two who had been built from one would now be one again — not one as identity, not one as the man absorbing the woman or the woman absorbing the man, but one as the form of what stands across in counterpart and is bound together. <em>Kenegdo</em> in posture, <em>one flesh</em> in form.</p>
+
+      <p>The mandate had been given to the man before the woman was made. The work of the garden — to serve it and to keep it — had been named at the man's placing, and he had been the one stationed to perform it. The woman, when she came, did not come to a man without work. She came to a man whose work was already given, and she came as the <em>ezer</em> fitted to him — the helper made in the form of the One who is helper of His people, the counterpart drawn to his match. The work that had been given to the man now became the work the two of them carried. The mandate did not pass to her as a secondary delegation. It became the work of the one-flesh that they were. He served, she served. He kept, she kept. The garden was tended and kept by the two of them, together, in the form of what God had built when He took from the man's side and brought to him the one who would stand facing him for the rest of his days.</p>
+
+      <p>What God had made in his wife was made in the same character as everything else that was made. The trees were good for food and pleasant to the sight. The rivers were given as provision and the lands they passed through were named for their beauty and their materials. The morning stars had sung at the founding of the heavens and the earth. And the one he had named <em>ishah</em>, made not from the ground but from the man himself, given not as a fragment but as a side, built not as an addition but as the <em>ezer kenegdo</em> (the helper standing in counterpart) that the man's own search had shown the absence of — she was given in the same character, by the same hand, with the same care. As all things the Creator's hands fashion, she was good, and the not-good vanished. She would be the mother of all living. The garden now had her. The man and his wife, image-bearing, breath-of-life, <em>ezer kenegdo</em>, one flesh, stood facing each other in the garden God had made.</p>
+
+      <h2 class="section">The Walking</h2>
+
+      <p>Inside the life of the garden, the man and his wife had something the trees did not give, and the rivers did not give, and the work did not give. They walked with God.</p>
+
+      <p>The text describes God's presence in the garden with a particular form of the Hebrew verb for walking. The verb is <em>halak</em> — to walk, to go. The form in these passages is the <em>hithpael</em> — the iterative-durative form, the form the canon uses when it names walking that goes on, walking that is the form of a life rather than a single passage through a place. The text uses this form for Enoch, of whom it says he walked with God for three hundred years and then was taken. And it uses the form for Noah, who walked with God in a generation the text describes without flinching:</p>
+
+      <blockquote>
+        <p><em>Now the earth was corrupt in God's sight, and the earth was filled with violence. And God saw the earth, and behold, it was corrupt, for all flesh had corrupted their way on the earth.</em></p>
+        <span class="ref">Genesis 6:11–12</span>
+      </blockquote>
+
+      <blockquote>
+        <p><em>Noah was a righteous man, blameless in his generation. Noah walked with God.</em></p>
+        <span class="ref">Genesis 6:9</span>
+      </blockquote>
+
+      <p>When God appeared to Abraham at ninety-nine years old, He gave him the form of his life as a command, using the same word the text had used of Noah:</p>
+
+      <blockquote>
+        <p><em>Walk before me, and be blameless.</em></p>
+        <span class="ref">Genesis 17:1</span>
+      </blockquote>
+
+      <p>And when God promised His people, through Moses, what His presence among them would be, He used the same verb:</p>
+
+      <blockquote>
+        <p><em>I will walk among you and will be your God, and you shall be my people.</em></p>
+        <span class="ref">Leviticus 26:12</span>
+      </blockquote>
+
+      <p>The verb is the verb of a life shared. It is the verb the text uses in Genesis 3:8 to describe God's presence in the garden where the man and his wife had been placed.</p>
+
+      <p>When the text later records Adam's own words on hearing God in the garden, what he says is what a man says about a presence he knows:</p>
+
+      <blockquote>
+        <p><em>I heard the sound of you in the garden.</em></p>
+        <span class="ref">Genesis 3:10</span>
+      </blockquote>
+
+      <p>He does not say <em>I heard a sound</em>. He says <em>I heard the sound of you</em>. The recognition is in the words themselves. The man knew the sound of God walking in the garden because the walking had been the form of his life there.</p>
+
+      <p>What that presence contained was not withheld from them. They walked with the One who had made every tree the garden held, every river that watered its lands, every creature given the breath of life and the man himself and the woman built from his side. The relationship with the Creator was the fullness of all knowledge and provision.</p>
+
+      <p>This was the Life given to them — it was not a transaction in which they served and were paid, not a contract in which obligations were exchanged. This was a walking together, day by day, in the place He had made for them. The work was inside, the rest was inside, and the Life was inside.</p>
+
+      <p class="citation"><span class="citation-label">Sources</span>Genesis 1:4, 10, 12, 18, 21, 25, 31; Genesis 2:9, 2:10–14, 2:18, 2:19–20, 2:21–22, 2:23, 2:24; Genesis 3:8, 3:10; Genesis 5:22–24; Genesis 6:9, 6:11–12; Genesis 17:1; Exodus 25–28; Exodus 26:1; 1 Kings 6:21–22, 6:29–32; 2 Samuel 7:6–7; Psalm 121:1–2; Psalm 124:8; Ecclesiastes 3:13; Leviticus 26:12; Job 38:4, 38:7. Hebrew <em>halak</em>, Strong's H1980 (hithpael stem). Hebrew <em>ezer</em>, Strong's H5828. Hebrew <em>kenegdo</em> (preposition <em>neged</em>, Strong's H5048). Hebrew <em>yatsar</em>, Strong's H3335. Hebrew <em>tsela</em>, Strong's H6763. Hebrew <em>banah</em>, Strong's H1129. Hebrew <em>ishah</em>, Strong's H802; Hebrew <em>ish</em>, Strong's H376. Hebrew <em>zot ha-pa'am</em> (Genesis 2:23 lexical phrase). Hebrew <em>tamim</em> (blameless), Strong's H8549.</p>
 
     </div>
   </main>
