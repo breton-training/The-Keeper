@@ -132,6 +132,36 @@
     cursor: default;
   }
 
+  /* ---------- Mobile TOC drawer button + backdrop ---------- */
+  .toc-button {
+    display: none;
+    position: fixed;
+    top: 0.85rem;
+    left: 0.85rem;
+    z-index: 100;
+    background: var(--bg-sidebar);
+    border: 1px solid var(--rule);
+    border-radius: 0.4rem;
+    padding: 0.55rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .toc-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 80;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   /* ---------- Main ---------- */
   .main {
     padding: 3.5rem 4rem 6rem;
@@ -317,22 +347,29 @@
       grid-template-columns: 1fr;
     }
     .sidebar {
-      position: relative;
-      height: auto;
-      top: auto;
-      overflow-y: visible;
-      padding: 1.5rem 1.25rem 1.25rem;
-      border-right: none;
-      border-bottom: 1px solid var(--rule);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 85vw;
+      max-width: 340px;
+      padding: 2rem 1.5rem 2rem;
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      z-index: 90;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     }
-    .sidebar-subtitle {
-      margin-bottom: 1.25rem;
+    body.toc-open .sidebar {
+      transform: translateX(0);
     }
-    .nav-section {
-      margin-bottom: 1rem;
+    .toc-button {
+      display: block;
+    }
+    body.toc-open .toc-backdrop {
+      display: block;
     }
     .main {
-      padding: 2rem 1.25rem 3rem;
+      padding: 4.5rem 1.25rem 3rem;
     }
     .content {
       max-width: 100%;
@@ -359,6 +396,9 @@
 </style>
 </head>
 <body>
+
+<button type="button" class="toc-button" aria-label="Toggle contents" onclick="document.body.classList.toggle('toc-open')">☰ Contents</button>
+<div class="toc-backdrop" onclick="document.body.classList.remove('toc-open')"></div>
 
 <div class="page">
 
@@ -588,6 +628,14 @@
   </main>
 
 </div>
+
+<script>
+  document.querySelectorAll('.sidebar a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.body.classList.remove('toc-open');
+    });
+  });
+</script>
 
 </body>
 </html>
